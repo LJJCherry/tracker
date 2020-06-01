@@ -7,7 +7,7 @@
   - 监听error
 
 #### 资源加载、JS异常错误捕获：
-```json
+```
  window.addEventListener('error', (event) => {
    if (event.target && (event.target.src || event.target.href)) {
       //捕获资源加载异常
