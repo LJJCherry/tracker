@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="a.css" rel="stylesheet" type="text/css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="a.css" rel="stylesheet" type="text/css"> -->
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="container">
-        <div class="content">
-            <img src="./jartto.png">
-            <input type="button" value="点击抛出错误" onclick="btnClick()" /> 
-            <input type="button" value="点击抛出promise错误" onclick="btnPromiseClick()" />
-        </div>
+      <div class="content">
+        <!-- <img src="./jartto.png"> -->
+        <input type="button" value="点击抛出错误" onclick="btnClick()" />
+        <input
+          type="button"
+          value="点击抛出promise错误"
+          onclick="btnPromiseClick()"
+        />
+        <input type="button" value="try-catch" onclick="btnCatchClick()" />
+        <input type="button" value="发送请求" id="input" />
+        <iframe src="./iframe.html" frameborder="0"></iframe>
+      </div>
     </div>
     <script>
-    function btnClick() {
-        window.someVariable.error = 'someVariable';
-    }
-    function btnPromiseClick() {
+      window.frames[0].onerror = function(message){
+          console.log('我知道 iframe 的错误了，也知道错误信息');
+          return true;
+      }
+      function btnClick() {
+        window.someVariable.error = "someVariable";
+      }
+      function btnPromiseClick() {
         new Promise(function (resolve, reject) {
-            console.log(someVar.some);
-        }); 
-    }
+          console.log(someVar.some);
+          // reject('jartto: promise error');
+        });
+      }
+      function btnCatchClick() {
+        try {
+          let name = "jartto";
+          console.log(nam);
+        } catch (e) {
+          console.log("捕获异常");
+        }
+      }
     </script>
-     <script src="a.js"></script>
-</body>
+    <!-- <script src="a.js"></script> -->
+  </body>
 </html>
