@@ -54,10 +54,5 @@ window.addEventListener(
 ```
 document.elementsFromPoint(window.innerWidth / 2, window.innerHeight / 2);
 ```
-<<<<<<< HEAD
-=======
-效果如下<br />								
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/105555/1590993639864-98b9fb06-9788-4829-9d0c-c09f97d560bf.png#align=left&display=inline&height=369&margin=%5Bobject%20Object%5D&name=image.png&originHeight=738&originWidth=2814&size=809068&status=done&style=none&width=1407)<br />	
 
-> github上面的图总无法访问，把文档链接放在了掘金上：https://juejin.im/post/5eef57bf6fb9a0584c603812
->>>>>>> 2c7157bf1caa5422006322f2dd92b09541152486
+> github 上面的图总无法访问，把文档链接放在了掘金上：https://juejin.im/post/5eef57bf6fb9a0584c603812
