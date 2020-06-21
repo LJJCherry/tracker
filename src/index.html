@@ -18,14 +18,14 @@
         />
         <input type="button" value="try-catch" onclick="btnCatchClick()" />
         <input type="button" value="发送请求" id="input" />
-        <iframe src="./iframe.html" frameborder="0"></iframe>
+        <!-- <iframe src="./iframe.html" frameborder="0"></iframe> -->
       </div>
     </div>
     <script>
-      window.frames[0].onerror = function(message){
-          console.log('我知道 iframe 的错误了，也知道错误信息');
-          return true;
-      }
+      // window.frames[0].onerror = function (message) {
+      //   console.log("我知道 iframe 的错误了，也知道错误信息");
+      //   return true;
+      // };
       function btnClick() {
         window.someVariable.error = "someVariable";
       }

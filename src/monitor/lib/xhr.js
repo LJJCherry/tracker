@@ -1,27 +1,22 @@
 // import tracker from '../utils/tracker';
 export function injectXHR() {
   let XMLHttpRequest = window.XMLHttpRequest;
-  console.log("XMLHttpRequest", XMLHttpRequest.prototype);
   let oldOpen = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (method, url, async) {
-    console.log("aaaabbbb", oldOpen);
     if (!url.match(/logstores/) && !url.match(/sockjs/)) {
       this.logData = { method, url, async };
     }
-    console.log("arguments", arguments);
     return oldOpen.apply(this, arguments);
   };
   //axios 背后有两种 如果 browser XMLHttpRequest  node http
   let oldSend = XMLHttpRequest.prototype.send;
   //fetch怎么监听
   XMLHttpRequest.prototype.send = function (body) {
-    console.log("XMLHttpRequest", this.logData, this.status);
     if (this.logData) {
       let startTime = Date.now(); //在发送之前记录一下开始的时间
       //XMLHttpRequest  readyState 0 1 2 3 4
       //status 2xx 304 成功 其它 就是失败
       let handler = (type) => (event) => {
-        console.log("type", type);
         let duration = Date.now() - startTime;
         let status = this.status; //200 500
         let statusText = this.statusText; // OK Server Error
